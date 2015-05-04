@@ -1,10 +1,11 @@
 #include <SPI.h>
 
 const int chipSelect = 10;
-unsigned int test = 0x0d0e0a0d;
-FILE *fd;
+unsigned int dead = 0x0d0e0a0d;
+unsigned int beef = 0x0b0e0e0f;
 
 void setup() {
+  // put your setup code here, to run once:
   SPI.begin();
   SPI.setDataMode(SPI_MODE0);
   SPI.setClockDivider(SPI_CLOCK_DIV8);
@@ -12,7 +13,9 @@ void setup() {
 }
 
 void loop() {
-  writeNumbers(test); 
+  writeNumbers(dead);
+  delay(500);
+  writeNumbers(beef);
   delay(500);
 }
 
